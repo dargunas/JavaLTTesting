@@ -2,8 +2,8 @@ package TestingRecap;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class CalculatorTest {
@@ -49,4 +49,47 @@ class CalculatorTest {
 
         assertThat(actualDifference).isEqualTo(-10);
     }
+
+    @Test
+    void testMultiplyTwoNumbers() {
+        int firstNumber = 3;
+        int secondNumber = 5;
+
+        int actualMultiplication = calculator.multiply(firstNumber, secondNumber);
+
+        assertThat(actualMultiplication).isEqualTo(15);
+    }
+
+    @Test
+    void testDivideTwoNumbers() {
+        int firstNumber = 4;
+        int secondNumber= 2;
+
+        double actualResult = calculator.divide(firstNumber, secondNumber);
+
+        assertThat(actualResult).isEqualTo(2);
+    }
+
+    @Test
+    void testDivideTwoNumbersWhereResultIsNotAnInteger() {
+        double firstNumber = 9;
+        double secondNumber= 2;
+
+        double actualResult = calculator.divide(firstNumber, secondNumber);
+
+        assertThat(actualResult).isEqualTo(4.5);
+    }
+//    Kazkas negerai
+//    @Test
+//    void testDivideNumberByZero() {
+//
+//        ArithmeticException exception = assertThrows(
+//                ArithmeticException.class,
+//                () -> calculator.divide(5, 0)
+//        );
+//
+//        assertTrue(exception.getMessage().contains("by zero"));
+//
+//    }
+
 }

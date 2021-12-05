@@ -35,5 +35,12 @@ public class Calculator {
         }
         return total;
     }
+    public int multiply(int firstNumber, int secondNumber) {
+        return firstNumber * secondNumber;
+    }
+
+    public double divide(double firstNumber, double secondNumber) {
+        return firstNumber / secondNumber;
+    }
 
 }

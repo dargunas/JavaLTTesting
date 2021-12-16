@@ -16,7 +16,7 @@ class CalculatorTest {
         int firstNumber = 12;
         int secondNumber = 3;
         //when
-        int addResult = calculator.add(firstNumber,secondNumber);
+        int addResult = calculator.add(firstNumber, secondNumber);
         //then
         assertEquals(15, addResult);
         assertThat(addResult).isEqualTo(15);
@@ -63,7 +63,7 @@ class CalculatorTest {
     @Test
     void testDivideTwoNumbers() {
         int firstNumber = 4;
-        int secondNumber= 2;
+        int secondNumber = 2;
 
         double actualResult = calculator.divide(firstNumber, secondNumber);
 
@@ -73,13 +73,15 @@ class CalculatorTest {
     @Test
     void testDivideTwoNumbersWhereResultIsNotAnInteger() {
         double firstNumber = 9;
-        double secondNumber= 2;
+        double secondNumber = 2;
 
         double actualResult = calculator.divide(firstNumber, secondNumber);
 
         assertThat(actualResult).isEqualTo(4.5);
+        assertThat("SDA".equalsIgnoreCase("sda")).isTrue();
     }
-//    Kazkas negerai
+
+    //    Kazkas negerai
 //    @Test
 //    void testDivideNumberByZero() {
 //
@@ -91,5 +93,17 @@ class CalculatorTest {
 //        assertTrue(exception.getMessage().contains("by zero"));
 //
 //    }
+    @Test
+    void testDivideNumberByZero() {
+
+        ArithmeticException exception = assertThrows(
+                ArithmeticException.class,
+                () -> calculator.divide(5, 0)
+        );
+
+        assertTrue(exception.getMessage().contains("by zero"));
+
+    }
+
 
 }
